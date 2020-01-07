@@ -11,8 +11,8 @@
 	.PARAMETER DistributionPoint
 		FQDN Name of a ConfigMgr Distribution Point
 
-    .NOTE
-        Internet Explorer will need to be opened before running due to the first run wizard.
+    	.NOTE
+        	Internet Explorer will need to be opened before running due to the first run wizard.
 
 #>
 
