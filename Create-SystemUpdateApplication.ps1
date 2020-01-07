@@ -9,10 +9,10 @@
 		Source location System Update executable will be downloaded to
 
 	.PARAMETER DistributionPoint
-        FQDN Name of a ConfigMgr Distribution Point
+        	FQDN Name of a ConfigMgr Distribution Point
 
-    .NOTES
-        Internet Explorer will need to be opened before running due to the first run wizard.
+    	.NOTES
+        	Internet Explorer will need to be opened before running due to the first run wizard.
 
 #>
 
