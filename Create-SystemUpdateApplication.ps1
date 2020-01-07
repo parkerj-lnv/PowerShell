@@ -12,7 +12,7 @@
         	FQDN Name of a ConfigMgr Distribution Point
 
     	.NOTES
-        	Internet Explorer will need to be opened before running due to the first run wizard.
+        	Run as Administrator on Site Server and turn off Internet Explorer enhanced security control for Administrators prior to running
 
 #>
 
