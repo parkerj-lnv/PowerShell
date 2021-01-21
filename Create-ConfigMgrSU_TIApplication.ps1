@@ -90,7 +90,7 @@ If ($SystemUpdateSourcePath)
 
 If ($ThinInstallerSourcePath)
     {
-        $tiExeURL = $document.links | ? { $_.href.Contains("thininstaller") -and $_.href.EndsWith(".exe") } | % { $_.href }
+        $tiExeURL = $document.links | ? { $_.href.Contains("thin_installer") -and $_.href.EndsWith(".exe") } | % { $_.href }
         $tiExe = $tiExeURL.Split('/')[5]
         # Downloading Thin Installer to source location
         Invoke-WebRequest -Uri $tiExeURL -OutFile "$ThinInstallerSourcePath\$tiExe"
