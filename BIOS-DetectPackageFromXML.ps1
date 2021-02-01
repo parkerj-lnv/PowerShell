@@ -200,6 +200,9 @@ if ($wmiclasserror) {
         Write-Output "================"
 
         $flash = Start-Process -FilePath $install -WorkingDirectory $extractDir -ArgumentList $silentswitch -PassThru -Wait
+	
+	$winuptplog = Get-Content -Path ($extractDir + "\winuptp.log")
+        Write-Output $winuptplog
         
     if ($flash.ExitCode -eq 1) {
                 Write-Output "====================================="
