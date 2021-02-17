@@ -1,32 +1,32 @@
-<# 
+﻿<#
 
-DISCLAIMER: 
+DISCLAIMER:
 
-These sample scripts are not supported under any Lenovo standard support   
+These sample scripts are not supported under any Lenovo standard support
 
-program or service. The sample scripts are provided AS IS without warranty   
+program or service. The sample scripts are provided AS IS without warranty
 
-of any kind. Lenovo further disclaims all implied warranties including,   
+of any kind. Lenovo further disclaims all implied warranties including,
 
-without limitation, any implied warranties of merchantability or of fitness for   
+without limitation, any implied warranties of merchantability or of fitness for
 
-a particular purpose. The entire risk arising out of the use or performance of   
+a particular purpose. The entire risk arising out of the use or performance of
 
-the sample scripts and documentation remains with you. In no event shall   
+the sample scripts and documentation remains with you. In no event shall
 
-Lenovo, its authors, or anyone else involved in the creation, production, or   
+Lenovo, its authors, or anyone else involved in the creation, production, or
 
-delivery of the scripts be liable for any damages whatsoever (including,   
+delivery of the scripts be liable for any damages whatsoever (including,
 
-without limitation, damages for loss of business profits, business interruption,   
+without limitation, damages for loss of business profits, business interruption,
 
-loss of business information, or other pecuniary loss) arising out of the use   
+loss of business information, or other pecuniary loss) arising out of the use
 
-of or inability to use the sample scripts or documentation, even if Lenovo   
+of or inability to use the sample scripts or documentation, even if Lenovo
 
-has been advised of the possibility of such damages.  
+has been advised of the possibility of such damages.
 
-#> 
+#>
 <#
 	.SYNOPSIS
 		Create a ConfigMgr Application for Lenovo System Update or Thin Installer
@@ -105,14 +105,16 @@ Saving the Thumbprint of the System Update and Thin Installer certificates as a 
 These will eventually change once a new certificate has been issued for each
 #>
 
-$Thumbprint = "CC5EE80524D43ACD5A32AB1F3A9D163CEE924443"
+$Thumbprint = "b9d8c79dd18fdea14c3b0e5194c8072d23694b91"
 
 # Compare Certificate Thumbprints to verify authenticity.  Script errors out if thumbprints do not match.
 If ($SystemUpdateSourcePath)
     {
         If ((Get-AuthenticodeSignature -FilePath $SystemUpdateSourcePath\$suExe).SignerCertificate.Thumbprint -ne $Thumbprint)
             {
+                Remove-Item -Path $SystemUpdateSourcePath\$suExe -Force
                 Write-Error "Certificate thumbprints do not match.  Exiting out" -ErrorAction Stop
+                
             }
     }
 
@@ -120,6 +122,7 @@ If ($ThinInstallerSourcePath)
     {
         If ((Get-AuthenticodeSignature -FilePath $ThinInstallerSourcePath\$tiExe).SignerCertificate.Thumbprint -ne $Thumbprint)
             {
+                Remove-Item -Path $ThinInstallerSourcePath\$tiExe -Force
                 Write-Error "Certificate thumbprints do not match. Exiting out" -ErrorAction Stop
             }
     }
