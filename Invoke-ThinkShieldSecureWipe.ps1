@@ -74,7 +74,8 @@ has been advised of the possibility of such damages.
             Note that this method may not wipe out all data even writing all sectors from LBA 0 to max LBA because some physical sectors may not be mapped to logical sectors due to wear leveling.
             The completion time varies according to the storage capacity and the algorithm.
 
-    FileName: Trigger-ThinkShieldSecureWipe.ps1
+    FileName: Invoke-ThinkShieldSecureWipe.ps1
+    Author: Philip Jorgensen
 #>
 
 [CmdletBinding()]
