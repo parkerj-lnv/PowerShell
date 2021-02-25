@@ -34,6 +34,10 @@ has been advised of the possibility of such damages.
     Script will install Lenovo System Update and set the necessary registry subkeys and values that downloads/installs 
     reboot type 3 packages on the system.  Certain UI settings are configured for an optimal end user experience.
     The default Scheduled Task created by System Update will be disabled.  A custom Scheduled Task for System Update will be created.
+    
+.NOTES
+    FileName: Autopilot-RunSystemUpdate.ps1
+    Author: Philip Jorgensen
 #>
 
 ##### Install System Update
